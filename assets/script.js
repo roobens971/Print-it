@@ -18,6 +18,11 @@ const slides = [
 ]
 
 /***Even listeners sur les flèches - Etapes 2***/
-
 const arrow = document.querySelectorAll('.arrow');
 console.log(arrow);
+
+/** Bullet points **/
+const bulletPoints = document.querySelector('.dots');
+console.log(bulletPoints);
+
+
