@@ -16,3 +16,8 @@ const slides = [
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
+
+/***Even listeners sur les flèches - Etapes 2***/
+
+const arrow = document.querySelectorAll('.arrow');
+console.log(arrow);
