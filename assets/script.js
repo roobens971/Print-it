@@ -17,36 +17,51 @@ const slides = [
 	}
 ]
 
-/***Even listeners sur les flèches - Etapes 2***/
-const arrow = document.querySelectorAll('.arrow');
-console.log(arrow);
+let compteur = 0;
+compteur ++;
 
-/** Bullet points **/
-const bulletPoints = document.querySelector('.dots');
-console.log(bulletPoints);
+/* Récupération des éléments en HTML */
+const bannerImg = document.querySelector('.banner-img');
+const tagLine = document.querySelector('#banner p');
+const arrowLeft = document.querySelector('.arrow_left');
+const arrowRight = document.querySelector('.arrow_right');
+const dots = document.querySelectorAll('.dot');
 
-/*slide1*/
-const slide1 = document.querySelector(".slide1");
-console.log(slide1);
-slide1.src = "./assets/images/slideshow/slide1.jpg";
-slide1.classList.add("dot_selected");
+function changeImg(){
+	bannerImg.src = `assets/images/slideshow/${slides[compteur].image}`;
+	tagLine.innerHTML = slides[compteur].tagLine;
+}
 
-/*slide2*/
-const slide2 = document.querySelector(".slide2");
-console.log(slide2);
-slide2.src = "./assets/images/slideshow/slide2.jpg";
-/*slide2.classList.add("dot_selected");*/
-
-
-/*slide3*/
-const slide3 = document.querySelector(".slide3");
-console.log(slide3);
-slide3.src = "./assets/images/slideshow/slide3.jpg";
-/*slide3.classList.add("dot_selected");*/
+function changeDots(){
+	// Retirer la class "dot_selected" sur toutes les dots
+	dots.forEach(dot => dot.classList.remove('dot_selected'));
+	// Ajouter la class "dot_selected" sur la dot en cours
+	dots[compteur].classList.add('dot_selected');
+}
 
 
-/*slide4*/
-const slide4 = document.querySelector(".slide4");
-console.log(slide4);
-slide4.src = "./assets/images/slideshow/slide4.jpg";
-/*slide4.classList.add("dot_selected");*/
+// arrowLeft
+/*arrowLeft.addEventListener("click", function changeDots() {
+	console.log(dots.forEach((dot) => dot.classList.remove("dot_selected")));
+	console.log(dots[compteur].classList.add("dot_selected"));
+	bannerImg.src = `assets/images/slideshow/${slides[compteur].image}`;
+	tagLine.innerHTML = slides[compteur].tagLine;
+  });*/
+  
+  // arrowRight
+  /*arrowRight.addEventListener("click", function changeDots() {
+	console.log(dots.forEach((dot) => dot.classList.remove("dot_selected")));
+	console.log(dots[compteur].classList.add("dot_selected"));
+	bannerImg.src = `assets/images/slideshow/${slides[compteur].image}`;
+	tagLine.innerHTML = slides[compteur++].tagLine;
+  });*/
+
+// Créer un événement pour la flèche de gauche
+// Utiliser le compteur pour avancer sur le tableau
+// Créer une condition qui nous permettra de revenir au premier élément du tableau lorsque l'on est sur le dernier
+// Appeler nos 2 fonctions
+
+// Créer un événement pour la flèche de droite
+// Utiliser le compteur pour reculer sur le tableau
+// Créer une condition qui nous permettra de revenir au dernier élément du tableau lorsque l'on est sur le premier
+// Appeler nos 2 fonctions
