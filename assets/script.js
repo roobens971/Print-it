@@ -39,29 +39,24 @@ function changeDots(){
 	dots[compteur].classList.add('dot_selected');
 }
 
-
-// arrowLeft
-/*arrowLeft.addEventListener("click", function changeDots() {
+// Créer un événement pour la flèche de gauche
+arrowLeft.addEventListener("click", function changeDots() {
 	console.log(dots.forEach((dot) => dot.classList.remove("dot_selected")));
-	console.log(dots[compteur].classList.add("dot_selected"));
+// Utiliser le compteur pour reculer sur le tableau
+	console.log(dots[compteur--].classList.add("dot_selected"));
 	bannerImg.src = `assets/images/slideshow/${slides[compteur].image}`;
 	tagLine.innerHTML = slides[compteur].tagLine;
-  });*/
-  
-  // arrowRight
-  /*arrowRight.addEventListener("click", function changeDots() {
-	console.log(dots.forEach((dot) => dot.classList.remove("dot_selected")));
-	console.log(dots[compteur].classList.add("dot_selected"));
-	bannerImg.src = `assets/images/slideshow/${slides[compteur].image}`;
-	tagLine.innerHTML = slides[compteur++].tagLine;
-  });*/
-
-// Créer un événement pour la flèche de gauche
-// Utiliser le compteur pour avancer sur le tableau
+  });
 // Créer une condition qui nous permettra de revenir au premier élément du tableau lorsque l'on est sur le dernier
 // Appeler nos 2 fonctions
 
 // Créer un événement pour la flèche de droite
-// Utiliser le compteur pour reculer sur le tableau
+  arrowRight.addEventListener("click", function changeDots() {
+	console.log(dots.forEach((dot) => dot.classList.remove("dot_selected")));
+// Utiliser le compteur pour avancer sur le tableau
+	console.log(dots[compteur].classList.add("dot_selected"));
+	bannerImg.src = `assets/images/slideshow/${slides[compteur].image}`;
+	tagLine.innerHTML = slides[compteur++].tagLine;
+  });
 // Créer une condition qui nous permettra de revenir au dernier élément du tableau lorsque l'on est sur le premier
 // Appeler nos 2 fonctions
