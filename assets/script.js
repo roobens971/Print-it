@@ -18,7 +18,6 @@ const slides = [
 ]
 
 let compteur = 0;
-compteur ++;
 
 /* Récupération des éléments en HTML */
 const bannerImg = document.querySelector('.banner-img');
@@ -40,23 +39,25 @@ function changeDots(){
 }
 
 // Créer un événement pour la flèche de gauche
-arrowLeft.addEventListener("click", function changeDots() {
-	console.log(dots.forEach((dot) => dot.classList.remove("dot_selected")));
-// Utiliser le compteur pour reculer sur le tableau
-	console.log(dots[compteur--].classList.add("dot_selected"));
-	bannerImg.src = `assets/images/slideshow/${slides[compteur].image}`;
-	tagLine.innerHTML = slides[compteur].tagLine;
-  });
-// Créer une condition qui nous permettra de revenir au premier élément du tableau lorsque l'on est sur le dernier
-// Appeler nos 2 fonctions
+arrowLeft.addEventListener("click", function() {
+	compteur--;
+
+	if(compteur < 0){
+		compteur = slides.length-1;
+	}
+
+	changeImg();
+	changeDots();
+});
 
 // Créer un événement pour la flèche de droite
-  arrowRight.addEventListener("click", function changeDots() {
-	console.log(dots.forEach((dot) => dot.classList.remove("dot_selected")));
-// Utiliser le compteur pour avancer sur le tableau
-	console.log(dots[compteur].classList.add("dot_selected"));
-	bannerImg.src = `assets/images/slideshow/${slides[compteur].image}`;
-	tagLine.innerHTML = slides[compteur++].tagLine;
-  });
-// Créer une condition qui nous permettra de revenir au dernier élément du tableau lorsque l'on est sur le premier
-// Appeler nos 2 fonctions
+arrowRight.addEventListener("click", function() {
+	compteur++;
+
+	if(compteur == slides.length){
+		compteur = 0;
+	}
+
+	changeImg();
+	changeDots();
+});
